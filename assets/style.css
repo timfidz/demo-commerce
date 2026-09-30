@@ -1,0 +1,63 @@
+/* Maquette de site de commerce : téléphone d'abord, une palette par métier */
+.theme-coiffeur { --fond: #f7f2ec; --papier: #fffdf9; --encre: #2b2320; --texte: #564a44; --accent: #b4633f; --accent-fonce: #8e4b2e; --doux: #efe1d6; }
+.theme-institut { --fond: #f8f1f1; --papier: #fffafa; --encre: #332527; --texte: #5d4a4d; --accent: #b2707c; --accent-fonce: #8f5360; --doux: #f1dfe2; }
+.theme-fleuriste { --fond: #f1f5ee; --papier: #fcfdfa; --encre: #1f2a1f; --texte: #4a5847; --accent: #4f7a4a; --accent-fonce: #3a5d36; --doux: #e0ead9; }
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 17px; line-height: 1.6; color: var(--texte); background: var(--fond); }
+h1, h2 { color: var(--encre); font-weight: 600; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+.bandeau { padding: 8px 16px; background: #1d1d1d; color: #fff; font: 600 .82rem system-ui, sans-serif; text-align: center; }
+.barre { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 18px; background: var(--papier); border-bottom: 1px solid var(--doux); }
+.logo { font-size: 1.15rem; color: var(--encre); }
+.bouton { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: var(--accent); color: #fff; font: 600 .98rem system-ui, sans-serif; text-decoration: none; }
+.bouton:hover { background: var(--accent-fonce); }
+.bouton.second { background: transparent; color: var(--accent-fonce); box-shadow: inset 0 0 0 1.5px var(--accent); }
+.bouton.petit { min-height: 38px; padding: 0 14px; font-size: .85rem; }
+
+.hero { display: grid; gap: 22px; max-width: 1080px; margin: 0 auto; padding: 34px 18px 10px; }
+.surtitre { font: 700 .78rem system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-fonce); }
+.hero h1 { margin-top: 8px; font-size: clamp(2.2rem, 9vw, 3.6rem); }
+.accroche { margin-top: 12px; font-size: 1.1rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.note-avis { margin-top: 14px; font: 600 .9rem system-ui, sans-serif; color: var(--encre); }
+.hero-visuel { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 120px 120px; gap: 8px; border-radius: 18px; overflow: hidden; }
+.hero-visuel span:nth-child(1) { grid-row: span 2; background: radial-gradient(circle at 35% 40%, var(--doux) 0 18%, transparent 19%), linear-gradient(140deg, var(--accent), var(--accent-fonce)); }
+.hero-visuel span:nth-child(2) { background: linear-gradient(160deg, var(--doux), var(--accent)); }
+.hero-visuel span:nth-child(3) { background: radial-gradient(circle at 60% 55%, var(--papier) 0 20%, transparent 21%), var(--accent-fonce); }
+
+main { max-width: 1080px; margin: 0 auto; padding: 16px 18px 40px; display: grid; gap: 34px; }
+main h2 { font-size: 1.5rem; margin-bottom: 14px; }
+.prestations { list-style: none; margin: 0; padding: 0; background: var(--papier); border: 1px solid var(--doux); border-radius: 14px; }
+.prestations li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; }
+.prestations li + li { border-top: 1px solid var(--doux); }
+.prestations div { display: grid; }
+.prestations strong { color: var(--encre); }
+.prestations span { font: .88rem system-ui, sans-serif; color: var(--texte); }
+.prestations b { font: 700 1rem system-ui, sans-serif; color: var(--encre); white-space: nowrap; }
+.petit-texte { margin-top: 8px; font: .82rem system-ui, sans-serif; color: var(--texte); }
+.avis { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.avis li { padding: 16px; background: var(--papier); border: 1px solid var(--doux); border-radius: 14px; }
+.avis span { color: #c28a1e; letter-spacing: 2px; }
+.avis p { margin-top: 6px; color: var(--encre); }
+.avis small { font: .85rem system-ui, sans-serif; }
+.infos { display: grid; gap: 14px; }
+.carte-bloc { padding: 20px; background: var(--papier); border: 1px solid var(--doux); border-radius: 14px; }
+.horaires { margin: 0; display: grid; gap: 4px; font-family: system-ui, sans-serif; font-size: .95rem; }
+.horaires div { display: flex; justify-content: space-between; }
+.horaires dt { color: var(--encre); font-weight: 600; }
+.horaires dd { margin: 0; }
+.plan { position: relative; height: 140px; margin-top: 12px; border-radius: 10px; background:
+  linear-gradient(100deg, transparent 46%, #fff 46% 50%, transparent 50%),
+  linear-gradient(10deg, transparent 58%, #fff 58% 61%, transparent 61%), var(--doux); }
+.epingle { position: absolute; left: 50%; top: 42%; width: 22px; height: 22px; margin: -11px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--accent); }
+.pied { padding: 26px 18px 40px; text-align: center; background: var(--papier); border-top: 1px solid var(--doux); }
+.pied p:first-child { color: var(--encre); font-weight: 600; }
+
+@media (min-width: 860px) {
+  .hero { grid-template-columns: 1.1fr 1fr; align-items: center; padding-top: 56px; }
+  .hero-visuel { grid-template-rows: 170px 170px; }
+  .avis { grid-template-columns: repeat(3, 1fr); }
+  .infos { grid-template-columns: 1fr 1fr; }
+}

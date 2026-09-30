@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Maquette de site</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <p class="bandeau" id="bandeau"></p>
+
+  <header class="barre">
+    <strong class="logo" data-champ="nom"></strong>
+    <a class="bouton petit" id="haut-rdv" href="#contact"></a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-texte">
+      <p class="surtitre" id="surtitre"></p>
+      <h1 data-champ="nom"></h1>
+      <p class="accroche" id="accroche"></p>
+      <div class="actions">
+        <a class="bouton" id="bouton-rdv" href="#contact"></a>
+        <a class="bouton second" id="bouton-appel" href="#contact">Appeler</a>
+      </div>
+      <p class="note-avis" id="note-avis"></p>
+    </div>
+    <div class="hero-visuel" aria-hidden="true"><span></span><span></span><span></span></div>
+  </section>
+
+  <main>
+    <section id="prestations">
+      <h2 id="titre-prestations"></h2>
+      <ul class="prestations" id="liste-prestations"></ul>
+      <p class="petit-texte">Prix d'exemple : vous les modifiez vous-même, à tout moment.</p>
+    </section>
+
+    <section>
+      <h2>Ce que disent nos clients</h2>
+      <ul class="avis" id="avis"></ul>
+      <p class="petit-texte">Avis d'exemple : sur votre site, ce sont vos avis Google.</p>
+    </section>
+
+    <section class="infos" id="contact">
+      <div class="carte-bloc">
+        <h2>Horaires</h2>
+        <dl class="horaires" id="horaires"></dl>
+      </div>
+      <div class="carte-bloc">
+        <h2>Nous trouver</h2>
+        <p id="adresse"></p>
+        <div class="plan" aria-hidden="true"><span class="epingle"></span></div>
+        <div class="actions">
+          <a class="bouton" id="bas-rdv" href="#contact"></a>
+          <a class="bouton second" id="bas-appel" href="#contact">Appeler</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <p><span data-champ="nom"></span> · <span data-champ="ville"></span></p>
+    <p class="petit-texte">Maquette réalisée par Tim Aubourg. Site lisible sur téléphone, modifiable par vous, bien référencé sur Google.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
