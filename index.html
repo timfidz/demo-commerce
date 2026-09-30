@@ -42,6 +42,21 @@
       <p class="petit-texte">Avis d'exemple : sur votre site, ce sont vos avis Google.</p>
     </section>
 
+    <section class="carte-bloc demande" id="demande">
+      <h2 id="titre-demande"></h2>
+      <p class="petit-texte" id="aide-demande"></p>
+      <form id="form-demande" novalidate>
+        <label class="champ">Votre nom<input name="nom" autocomplete="name" required></label>
+        <label class="champ">Votre téléphone<input name="tel" type="tel" autocomplete="tel" required></label>
+        <label class="champ"><span id="libelle-choix"></span><select name="choix" id="choix-demande"></select></label>
+        <label class="champ"><span id="libelle-jour"></span><input name="jour" type="date"></label>
+        <label class="champ">Un mot (facultatif)<textarea name="mot" rows="2"></textarea></label>
+        <p class="erreur" id="erreur-demande" hidden>Indiquez votre nom et votre téléphone.</p>
+        <button type="submit" class="bouton" id="envoyer-demande"></button>
+      </form>
+      <p class="merci" id="merci-demande" hidden></p>
+    </section>
+
     <section class="infos" id="contact">
       <div class="carte-bloc">
         <h2>Horaires</h2>

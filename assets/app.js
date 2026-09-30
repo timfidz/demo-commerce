@@ -62,15 +62,40 @@
   texte($("titre-prestations"), metier.titrePrestations)
   texte($("adresse"), adresse)
 
-  // Boutons : réservation en ligne (Planity ou autre) si le lien est fourni, sinon la section contact
+  // Style : trois variantes par métier (couleurs et typographie), pour que deux commerces voisins n'aient pas la même page
+  const style = ["1", "2", "3"].includes(lire("style")) ? lire("style") : "1"
+  document.body.classList.add("style-" + style)
+
+  // Boutons : réservation en ligne (Planity ou autre) si le lien est fourni, sinon le formulaire de demande
   for (const id of ["haut-rdv", "bouton-rdv", "bas-rdv"]) {
     const a = texte($(id), metier.rdv)
+    a.href = "#demande"
     if (rdv.startsWith("https://")) {
       a.href = rdv
       a.target = "_blank"
       a.rel = "noopener"
     }
   }
+
+  // Formulaire de demande : le commerçant la reçoit par e-mail ou SMS et rappelle
+  const fleuriste = metier === METIERS.fleuriste
+  texte($("titre-demande"), fleuriste ? "Commander un bouquet" : "Demander un rendez-vous")
+  texte($("aide-demande"), rdv.startsWith("https://") ? "Vous pouvez aussi réserver directement en ligne avec le bouton « Prendre rendez-vous »." : fleuriste ? "Dites-nous l'occasion et le jour : nous vous rappelons pour composer votre bouquet." : "Choisissez une prestation et un jour : nous vous rappelons pour fixer l'heure.")
+  texte($("libelle-choix"), fleuriste ? "L'occasion" : "La prestation")
+  texte($("libelle-jour"), fleuriste ? "Pour quel jour ?" : "Le jour souhaité")
+  texte($("envoyer-demande"), fleuriste ? "Envoyer ma commande" : "Envoyer ma demande")
+  const choix = $("choix-demande")
+  for (const o of fleuriste ? ["Anniversaire", "Remerciement", "Naissance", "Mariage", "Deuil", "Autre"] : metier.prestations.map((x) => x[0])) choix.append(texte(document.createElement("option"), o))
+  $("form-demande").addEventListener("submit", (e) => {
+    e.preventDefault()
+    const f = new FormData(e.target)
+    const manque = !String(f.get("nom")).trim() || !String(f.get("tel")).trim()
+    $("erreur-demande").hidden = !manque
+    if (manque) return
+    e.target.hidden = true
+    const m = texte($("merci-demande"), `Merci ${String(f.get("nom")).trim().split(" ")[0]}, votre demande est envoyée. ${nom} la reçoit aussitôt par e-mail ou par SMS et vous rappelle. (Démonstration : rien n'est envoyé.)`)
+    m.hidden = false
+  })
   for (const id of ["bouton-appel", "bas-appel"]) {
     const a = $(id)
     if (tel) {
